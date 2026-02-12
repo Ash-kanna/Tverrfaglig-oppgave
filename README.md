@@ -3,13 +3,12 @@
 
 ### Features
 
-Python
-django
-sqlite
+* Python
+* Django
+* SQLite
 
 
 ---
 ### TODO
 - [x] Lage README.md
 
-> - - - > - - -
