@@ -1,22 +1,15 @@
 # README
-> ### *Laget av ???*
----
-### Hva er dette
-
-
-> - - - > - - - > - - - >
+> ### *Laget av Adea*
 
 ### Features
 
 Python
+django
+sqlite
 
 
 ---
 ### TODO
-- [ ] Utsette oppgaver
-- [ ] Gjøre ting senere
-- [ ] Sove
-- [ ] Unngå lekser
 - [x] Lage README.md
 
 > - - - > - - -
