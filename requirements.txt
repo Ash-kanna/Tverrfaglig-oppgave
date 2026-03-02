@@ -8,3 +8,5 @@ requests==2.32.5
 six==1.17.0
 tzdata==2025.3
 urllib3==2.6.3
+# Django is required for the demo app; allow any 4.x release (4.2+)
+Django>=4.2,<6

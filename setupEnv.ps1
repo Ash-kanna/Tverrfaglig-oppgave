@@ -45,9 +45,9 @@ Write-Host "Oppgraderer pip..." -ForegroundColor Cyan
 python -m pip install --upgrade pip
 if ($LASTEXITCODE -ne 0) { Fail "Pip-oppgradering feilet." }
 
-# 5) Installer requests, numpy og pandas
-Write-Host "Installerer 'requests', 'numpy', 'pandas'..." -ForegroundColor Cyan
-python -m pip install requests numpy pandas
+# 5) Installer requests, numpy, pandas og Django
+Write-Host "Installerer 'requests', 'numpy', 'pandas' og 'Django'..." -ForegroundColor Cyan
+python -m pip install requests numpy pandas "Django>=4.2,<6"
 if ($LASTEXITCODE -ne 0) { Fail "Installasjon av pakker feilet." }
 
 # 6) Lag requirements.txt
