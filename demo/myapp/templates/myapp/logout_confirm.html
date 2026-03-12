@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Bekreft utlogging{% endblock %}
+
+{% block content %}
+<h1>Bekreft utlogging</h1>
+<p>Er du sikker på at du vil logge ut?</p>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Ja, logg ut</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Nei, bli logget inn</a>
+</form>
+{% endblock %}

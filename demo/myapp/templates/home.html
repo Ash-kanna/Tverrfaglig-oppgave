@@ -11,10 +11,10 @@
 <p>Welcome to the home page</p>
 
 {% if request.user.is_authenticated %}
-    <p>Innlogget som {{ request.user.username }} –
-       <a href="{% url 'logout' %}">Logg ut</a></p>
+    <p>Innlogget som {{ request.user.username }} 
+       <button href="{% url 'logout' %}">Logg ut</button></p>
 {% else %}
-    <a href="{% url 'login' %}" class="btn btn-primary">Logg inn</a>
+    <button href="{% url 'login' %}" class="btn btn-primary">Logg inn</button>
 {% endif %}
 
 {% endblock %}

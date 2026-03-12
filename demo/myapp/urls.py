@@ -4,7 +4,6 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("todos/", views.todos, name="Todos"),
 
     # authentication
     path(
@@ -12,9 +11,13 @@ urlpatterns = [
         auth_views.LoginView.as_view(template_name="myapp/login.html"),
         name="login",
     ),
+    # logout uses a confirmation page; POST to actually log out
     path(
         "logout/",
-        auth_views.LogoutView.as_view(next_page="home"),
+        auth_views.LogoutView.as_view(
+            template_name="myapp/logout_confirm.html",
+            next_page="home",
+        ),
         name="logout",
     ),
 ]
