@@ -111,6 +111,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+# redirect destinations for the built-in auth views
+LOGIN_REDIRECT_URL = '/'  # send users back to home after login
+LOGOUT_REDIRECT_URL = '/'  # not strictly needed, LogoutView uses next_page
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/

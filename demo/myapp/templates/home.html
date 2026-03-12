@@ -1,5 +1,20 @@
-{% extends "base.html"%} {% block title%} Home Page {% endblock %}
-{% block content%}
+{% extends "base.html" %}
+{% load static %}
 
-<p> Welcome to the home page </p>
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+<!-- logo/image at the top -->
+<img src="{% static 'myapp/image.png' %}" alt="logo til Spillpunkt" class="banner" />
+
+<p>Welcome to the home page</p>
+
+{% if request.user.is_authenticated %}
+    <p>Innlogget som {{ request.user.username }} –
+       <a href="{% url 'logout' %}">Logg ut</a></p>
+{% else %}
+    <a href="{% url 'login' %}" class="btn btn-primary">Logg inn</a>
+{% endif %}
+
 {% endblock %}
