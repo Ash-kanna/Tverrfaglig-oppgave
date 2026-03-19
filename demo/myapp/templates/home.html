@@ -11,10 +11,14 @@
 <p>Welcome to the home page</p>
 
 {% if request.user.is_authenticated %}
-    <p>Innlogget som {{ request.user.username }} 
-       <button href="{% url 'logout' %}">Logg ut</button></p>
+    <p>Innlogget som {{ request.user.username }} </p>
+    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-link">Logg ut</button>
+    </form>
 {% else %}
-    <button href="{% url 'login' %}" class="btn btn-primary">Logg inn</button>
+    <a href="{% url 'login' %}" class="btn btn-primary">Logg inn</a>
+    <a href="{% url 'register' %}" class="btn btn-secondary" style="margin-left: 8px;">Lag bruker</a>
 {% endif %}
 
 {% endblock %}
