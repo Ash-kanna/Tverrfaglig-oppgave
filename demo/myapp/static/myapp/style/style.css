@@ -45,3 +45,46 @@ img.banner {
     display: block;
     margin: 0 auto 20px;
 }
+
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 12px 20px;
+    z-index: 1050;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cookie-consent-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.cookie-consent p {
+    margin: 0;
+    flex: 1;
+    min-width: 220px;
+}
+
+.cookie-consent .btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+
+.cookie-consent .btn-secondary {
+    background-color: #6c757d;
+}
+
+.d-none {
+    display: none !important;
+}

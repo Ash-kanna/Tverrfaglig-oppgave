@@ -31,9 +31,37 @@
         </nav>
     </header>
 
+    <div id="cookie-consent-bar" class="cookie-consent d-none">
+        <div class="cookie-consent-content">
+            <p>Vi bruker cookies for å forbedre opplevelsen din. Ved å bruke nettstedet godtar du dette.</p>
+            <button id="cookie-accept" class="btn">OK, forstått</button>
+            <button id="cookie-decline" class="btn btn-secondary">Nei takk</button>
+        </div>
+    </div>
+
     <div class="container">{% block content %} {% endblock %}</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var bar = document.getElementById('cookie-consent-bar');
+            var accepted = localStorage.getItem('cookiesAccepted');
+
+            if (!accepted) {
+                bar.classList.remove('d-none');
+            }
+
+            document.getElementById('cookie-accept').addEventListener('click', function() {
+                localStorage.setItem('cookiesAccepted', 'yes');
+                bar.classList.add('d-none');
+            });
+
+            document.getElementById('cookie-decline').addEventListener('click', function() {
+                localStorage.setItem('cookiesAccepted', 'no');
+                bar.classList.add('d-none');
+            });
+        });
+    </script>
 </body>
 </html>
