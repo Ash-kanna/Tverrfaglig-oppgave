@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import TodoItem
 
 # Create your views here.
 def home(request):
@@ -19,4 +19,9 @@ def register(request):
         form = UserCreationForm()
 
     return render(request, "myapp/register.html", {"form": form})
+
+
+def member_list(request):
+    members = User.objects.order_by('username')
+    return render(request, "myapp/members.html", {"members": members})
 

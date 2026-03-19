@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Medlemsliste{% endblock %}
+
+{% block content %}
+<h2>Medlemsliste</h2>
+<p>Antall brukere: {{ members|length }}</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Brukernavn</th>
+            <th>Epost</th>
+            <th>Dato opprettet</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.username }}</td>
+            <td>{{ member.email|default:"-" }}</td>
+            <td>{{ member.date_joined|date:"Y-m-d H:i" }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">Ingen medlemmer registrert.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'home' %}" class="btn btn-secondary">Tilbake til hjem</a>
+{% endblock %}

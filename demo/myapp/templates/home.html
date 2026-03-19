@@ -12,6 +12,7 @@
 
 {% if request.user.is_authenticated %}
     <p>Innlogget som {{ request.user.username }} </p>
+    <a href="{% url 'members' %}" class="btn btn-info">Vis medlemmer</a>
     <form method="post" action="{% url 'logout' %}" style="display:inline;">
         {% csrf_token %}
         <button type="submit" class="btn btn-link">Logg ut</button>
@@ -19,6 +20,7 @@
 {% else %}
     <a href="{% url 'login' %}" class="btn btn-primary">Logg inn</a>
     <a href="{% url 'register' %}" class="btn btn-secondary" style="margin-left: 8px;">Lag bruker</a>
+    <a href="{% url 'members' %}" class="btn btn-info" style="margin-left: 8px;">Medlemsliste</a>
 {% endif %}
 
 {% endblock %}
