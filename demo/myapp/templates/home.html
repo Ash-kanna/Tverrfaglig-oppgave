@@ -13,7 +13,8 @@
 {% if request.user.is_authenticated %}
     <p>Innlogget som {{ request.user.username }} </p>
     <a href="{% url 'members' %}" class="btn btn-info">Vis medlemmer</a>
-    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+    <a href="{% url 'activities' %}" class="btn btn-info" style="margin-left: 8px;">Aktiviteter</a>
+    <form method="post" action="{% url 'logout' %}" style="display:inline; margin-left:8px;">
         {% csrf_token %}
         <button type="submit" class="btn btn-link">Logg ut</button>
     </form>

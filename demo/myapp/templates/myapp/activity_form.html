@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Opprett aktivitet{% endblock %}
+
+{% block content %}
+<h2>Opprett aktivitet</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="navn">Navn</label>
+        <input id="navn" name="navn" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="beskrivelse">Beskrivelse</label>
+        <textarea id="beskrivelse" name="beskrivelse" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="dato">Dato</label>
+        <input id="dato" name="dato" type="datetime-local" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Lag aktivitet</button>
+    <a href="{% url 'activities' %}" class="btn btn-secondary">Avbryt</a>
+</form>
+{% endblock %}

@@ -29,3 +29,20 @@ class Bestilling(models.Model):
 
     def __str__(self):
         return f"{self.bruker} - {self.produkt}"
+
+
+from django.conf import settings
+
+
+class Aktivitet(models.Model):
+    navn = models.CharField(max_length=150)
+    beskrivelse = models.TextField(blank=True)
+    dato = models.DateTimeField()
+    deltakere = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='aktiviteter')
+
+    def __str__(self):
+        return f"{self.navn} ({self.dato})"
+
+    @property
+    def antall_deltakere(self):
+        return self.deltakere.count()
